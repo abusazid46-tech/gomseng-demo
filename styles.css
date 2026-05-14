@@ -1,0 +1,694 @@
+:root {
+  color-scheme: light;
+  --ink: #211c18;
+  --muted: #70665d;
+  --paper: #fffaf2;
+  --surface: #ffffff;
+  --saffron: #c97722;
+  --lac: #9f2337;
+  --leaf: #235b4d;
+  --gold: #d9a441;
+  --line: rgba(33, 28, 24, 0.14);
+  --shadow: 0 24px 60px rgba(49, 32, 17, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  letter-spacing: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  align-items: center;
+  background: rgba(255, 250, 242, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid transparent;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  left: 0;
+  padding: 16px clamp(18px, 5vw, 68px);
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+  z-index: 20;
+}
+
+.site-header.scrolled {
+  border-color: var(--line);
+  box-shadow: 0 10px 30px rgba(33, 28, 24, 0.08);
+}
+
+.brand {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  min-width: 190px;
+}
+
+.brand-mark {
+  align-items: center;
+  background: var(--ink);
+  border-radius: 50%;
+  color: var(--gold);
+  display: inline-flex;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.brand strong,
+.site-footer strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+.brand small {
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a,
+.header-cta {
+  border-radius: 999px;
+  color: #443b34;
+  font-size: 14px;
+  padding: 10px 14px;
+}
+
+.nav-links a:hover,
+.header-cta:hover {
+  background: rgba(201, 119, 34, 0.12);
+}
+
+.header-cta {
+  background: var(--ink);
+  color: #fff8eb;
+}
+
+.hero {
+  min-height: 94vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-media,
+.bridal-image {
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-media {
+  background-image: url("https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=2200&q=84");
+  inset: 0;
+  position: absolute;
+  transform: scale(1.03);
+}
+
+.hero-shade {
+  background:
+    linear-gradient(90deg, rgba(33, 28, 24, 0.82), rgba(33, 28, 24, 0.42) 46%, rgba(33, 28, 24, 0.06)),
+    linear-gradient(0deg, rgba(33, 28, 24, 0.54), rgba(33, 28, 24, 0.06) 34%);
+  inset: 0;
+  position: absolute;
+}
+
+.hero-content {
+  color: #fff7ea;
+  max-width: 760px;
+  padding: 24vh clamp(20px, 6vw, 82px) 170px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.eyebrow.dark {
+  color: var(--lac);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(72px, 13vw, 176px);
+  font-weight: 500;
+  line-height: 0.82;
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 5vw, 68px);
+  font-weight: 500;
+  line-height: 0.98;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.hero-copy {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
+  max-width: 660px;
+}
+
+.hero-actions,
+.visit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 20px;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  background: var(--saffron);
+  color: #fffaf2;
+}
+
+.button.secondary {
+  background: rgba(255, 250, 242, 0.12);
+  border-color: rgba(255, 250, 242, 0.5);
+  color: #fffaf2;
+}
+
+.button.secondary.light {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.button.ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.hero-panel {
+  align-items: stretch;
+  background: rgba(255, 250, 242, 0.93);
+  border: 1px solid rgba(255, 250, 242, 0.7);
+  border-radius: 8px;
+  bottom: 34px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-width: min(620px, calc(100vw - 40px));
+  overflow: hidden;
+  position: absolute;
+  right: clamp(20px, 5vw, 68px);
+  z-index: 3;
+}
+
+.hero-panel div {
+  padding: 20px 24px;
+}
+
+.hero-panel div + div {
+  border-left: 1px solid var(--line);
+}
+
+.hero-panel strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.hero-panel span {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.section-pad {
+  padding: clamp(58px, 9vw, 112px) clamp(20px, 5vw, 68px);
+}
+
+.intro {
+  align-items: end;
+  display: grid;
+  gap: 34px;
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.intro p,
+.section-head > p,
+.bridal-copy p,
+.visit-card p,
+.enquire > div p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.section-head {
+  align-items: end;
+  display: flex;
+  gap: 26px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.section-head > p {
+  max-width: 560px;
+}
+
+.filters {
+  background: rgba(33, 28, 24, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+}
+
+.filter {
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 14px;
+}
+
+.filter.active {
+  background: var(--surface);
+  box-shadow: 0 8px 18px rgba(33, 28, 24, 0.08);
+  color: var(--ink);
+}
+
+.product-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(33, 28, 24, 0.06);
+  overflow: hidden;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.product-card.hidden {
+  display: none;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-card div {
+  padding: 20px;
+}
+
+.product-card span {
+  color: var(--lac);
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.product-card p,
+.craft-item p,
+.lookbook-caption p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.bridal {
+  background: var(--ink);
+  color: #fffaf2;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  min-height: 720px;
+}
+
+.bridal-image {
+  background-image: url("https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1500&q=84");
+  min-height: 520px;
+}
+
+.bridal-copy {
+  align-self: center;
+  padding: clamp(42px, 7vw, 88px);
+}
+
+.bridal-copy p,
+.bridal-copy .tick-list {
+  color: rgba(255, 250, 242, 0.76);
+}
+
+.tick-list {
+  list-style: none;
+  margin: 26px 0 30px;
+  padding: 0;
+}
+
+.tick-list li {
+  border-top: 1px solid rgba(255, 250, 242, 0.18);
+  padding: 16px 0 16px 28px;
+  position: relative;
+}
+
+.tick-list li::before {
+  background: var(--gold);
+  border-radius: 50%;
+  content: "";
+  height: 9px;
+  left: 0;
+  position: absolute;
+  top: 22px;
+  width: 9px;
+}
+
+.craft-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.craft-item {
+  background: #fff4e2;
+  border: 1px solid rgba(201, 119, 34, 0.22);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.craft-item strong {
+  color: var(--lac);
+  display: block;
+  margin-bottom: 42px;
+}
+
+.lookbook {
+  background: #f2eadf;
+}
+
+.lookbook-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+}
+
+.lookbook-stage img {
+  aspect-ratio: 16 / 8;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.lookbook-caption {
+  align-content: end;
+  background: var(--leaf);
+  color: #fffaf2;
+  display: grid;
+  padding: 34px;
+}
+
+.lookbook-caption span {
+  color: var(--gold);
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.lookbook-caption strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.lookbook-caption p {
+  color: rgba(255, 250, 242, 0.74);
+}
+
+.visit {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+}
+
+.visit-card,
+.mini-reviews,
+.enquiry-form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 12px 36px rgba(33, 28, 24, 0.06);
+  padding: clamp(28px, 4vw, 46px);
+}
+
+.mini-reviews {
+  align-content: center;
+  background: var(--lac);
+  color: #fffaf2;
+  display: grid;
+}
+
+blockquote {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.05;
+  margin: 0 0 24px;
+}
+
+.mini-reviews span {
+  color: rgba(255, 250, 242, 0.72);
+}
+
+.enquire {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 0.86fr 1.14fr;
+}
+
+.enquiry-form {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.enquiry-form label {
+  color: var(--muted);
+  display: grid;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 8px;
+}
+
+.enquiry-form input,
+.enquiry-form select {
+  background: #fffaf2;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 50px;
+  padding: 12px 14px;
+}
+
+.enquiry-form button,
+.form-result {
+  grid-column: 1 / -1;
+}
+
+.form-result {
+  background: #f6efe4;
+  border-radius: 8px;
+  color: var(--leaf);
+  display: none;
+  line-height: 1.5;
+  margin: 0;
+  padding: 14px 16px;
+}
+
+.form-result.visible {
+  display: block;
+}
+
+.site-footer {
+  align-items: center;
+  background: var(--ink);
+  color: #fffaf2;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px clamp(20px, 5vw, 68px);
+}
+
+.site-footer span {
+  color: rgba(255, 250, 242, 0.64);
+  display: block;
+  margin-top: 4px;
+}
+
+@media (max-width: 980px) {
+  .nav-links {
+    display: none;
+  }
+
+  .intro,
+  .bridal,
+  .lookbook-stage,
+  .visit,
+  .enquire {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bridal-image {
+    min-height: 420px;
+  }
+
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .lookbook-stage img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    padding: 12px 16px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand small,
+  .header-cta {
+    display: none;
+  }
+
+  .hero {
+    min-height: 900px;
+  }
+
+  .hero-content {
+    padding: 180px 20px 280px;
+  }
+
+  .hero-panel {
+    grid-template-columns: 1fr;
+    left: 20px;
+    right: 20px;
+  }
+
+  .hero-panel div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .product-grid,
+  .craft-grid,
+  .enquiry-form {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    border-radius: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter {
+    flex: 1 1 auto;
+  }
+
+  .site-footer {
+    align-items: start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
