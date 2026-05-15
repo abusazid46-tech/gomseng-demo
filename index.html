@@ -10,7 +10,7 @@
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="GOMSENG home">
-        <span class="brand-seal">G</span>
+        <img class="brand-logo" src="gomseng-logo.jpg" alt="GOMSENG logo" />
         <span class="brand-text">
           <strong>GOMSENG</strong>
           <small>Assamese Silk House</small>
@@ -98,9 +98,10 @@
               <span>Store Collection</span>
               <h3>GOMSENG Signature Silk</h3>
               <p>Public listing product image from GOMSENG's directory footprint.</p>
+              <strong class="price">₹4,999</strong>
               <div class="product-actions">
                 <button type="button" data-product="GOMSENG Signature Silk">Enquire</button>
-                <a href="https://www.instagram.com/gomseng_assamese_silk" target="_blank" rel="noreferrer">Buy via Instagram</a>
+                <button type="button" class="buy" data-buy="GOMSENG Signature Silk" data-price="4999">Buy Now</button>
               </div>
             </div>
           </article>
@@ -110,9 +111,10 @@
               <span>Muga mood</span>
               <h3>Golden Mekhela Chador</h3>
               <p>Assamese-toned silk inspiration for premium bridal and family functions.</p>
+              <strong class="price">₹12,999</strong>
               <div class="product-actions">
                 <button type="button" data-product="Golden Mekhela Chador">Enquire</button>
-                <a href="https://www.instagram.com/gomseng_assamese_silk" target="_blank" rel="noreferrer">Buy via Instagram</a>
+                <button type="button" class="buy" data-buy="Golden Mekhela Chador" data-price="12999">Buy Now</button>
               </div>
             </div>
           </article>
@@ -122,9 +124,10 @@
               <span>Festival silk</span>
               <h3>Pat Silk Occasion Set</h3>
               <p>Ivory, red and gold styling direction for Bihu, weddings and gifting.</p>
+              <strong class="price">₹8,499</strong>
               <div class="product-actions">
                 <button type="button" data-product="Pat Silk Occasion Set">Enquire</button>
-                <a href="https://www.facebook.com/share/15oqmprB3Nt/?mibextid=wwXIfr" target="_blank" rel="noreferrer">Buy via Facebook</a>
+                <button type="button" class="buy" data-buy="Pat Silk Occasion Set" data-price="8499">Buy Now</button>
               </div>
             </div>
           </article>
@@ -134,9 +137,10 @@
               <span>Jewellery</span>
               <h3>Axomiya Gohona Pairing</h3>
               <p>Neckpiece, earrings and bangles styled with bridal Mekhela Chador sets.</p>
+              <strong class="price">₹2,999</strong>
               <div class="product-actions">
                 <button type="button" data-product="Axomiya Gohona Pairing">Enquire</button>
-                <a href="https://www.instagram.com/gomseng_assamese_silk" target="_blank" rel="noreferrer">Buy via Instagram</a>
+                <button type="button" class="buy" data-buy="Axomiya Gohona Pairing" data-price="2999">Buy Now</button>
               </div>
             </div>
           </article>
@@ -176,9 +180,9 @@
         <form class="enquiry-form reveal" data-form>
           <input name="name" type="text" placeholder="Your name" required />
           <input name="product" type="text" placeholder="Product interest" data-product-field required />
+          <input name="phone" type="tel" placeholder="Your phone number" />
           <select name="channel">
-            <option value="Instagram">Instagram</option>
-            <option value="Facebook">Facebook</option>
+            <option value="WhatsApp">WhatsApp</option>
             <option value="Store visit">Store visit</option>
           </select>
           <input name="budget" type="text" placeholder="Budget range" />
@@ -187,6 +191,26 @@
         </form>
       </section>
     </main>
+
+    <div class="checkout" data-checkout hidden>
+      <div class="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+        <button class="close" type="button" data-close aria-label="Close checkout">×</button>
+        <p class="eyebrow dark">Demo checkout</p>
+        <h2 id="checkout-title">Complete your order</h2>
+        <form data-order-form>
+          <input name="product" data-order-product readonly />
+          <input name="price" data-order-price readonly />
+          <input name="customer" placeholder="Full name" required />
+          <input name="phone" placeholder="Phone number" required />
+          <textarea name="address" placeholder="Delivery address" required></textarea>
+          <div class="payment-options">
+            <label><input type="radio" name="payment" value="Cash on Delivery" checked /> Cash on Delivery</label>
+            <label><input type="radio" name="payment" value="Online Payment Simulation" /> Online Payment</label>
+          </div>
+          <button class="button gold" type="submit">Place Demo Order on WhatsApp</button>
+        </form>
+      </div>
+    </div>
 
     <footer>
       <strong>GOMSENG</strong>

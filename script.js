@@ -3,6 +3,9 @@ const productField = document.querySelector("[data-product-field]");
 const form = document.querySelector("[data-form]");
 const result = document.querySelector("[data-result]");
 const reveals = document.querySelectorAll(".reveal");
+const checkout = document.querySelector("[data-checkout]");
+const orderForm = document.querySelector("[data-order-form]");
+const whatsappNumber = "917002005047";
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
@@ -30,14 +33,57 @@ document.querySelectorAll("[data-product]").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-buy]").forEach((button) => {
+  button.addEventListener("click", () => {
+    checkout.hidden = false;
+    orderForm.querySelector("[data-order-product]").value = button.dataset.buy;
+    orderForm.querySelector("[data-order-price]").value = `₹${Number(button.dataset.price).toLocaleString("en-IN")}`;
+    orderForm.elements.customer.focus();
+  });
+});
+
+document.querySelector("[data-close]").addEventListener("click", () => {
+  checkout.hidden = true;
+});
+
+checkout.addEventListener("click", (event) => {
+  if (event.target === checkout) {
+    checkout.hidden = true;
+  }
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(form);
   const name = data.get("name").trim();
   const product = data.get("product").trim();
-  const channel = data.get("channel");
+  const phone = data.get("phone").trim() || "not shared";
   const budget = data.get("budget").trim() || "open";
+  const message = `Hello GOMSENG, I am ${name}. I want to enquire about ${product}. My phone number is ${phone}. My budget is ${budget}. Please share available designs, price and appointment timing.`;
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  result.innerHTML = `Ready message for ${channel}: Hello GOMSENG, I am ${name}. I want to buy or enquire about ${product}. My budget is ${budget}. Please share available designs, price and appointment timing.<br><br><a href="https://www.instagram.com/gomseng_assamese_silk" target="_blank" rel="noreferrer">Open Instagram enquiry</a>`;
+  result.innerHTML = `WhatsApp enquiry ready for 7002005047.<br><br><a href="${url}" target="_blank" rel="noreferrer">Send on WhatsApp</a>`;
   result.classList.add("visible");
+  window.open(url, "_blank", "noopener");
+});
+
+orderForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(orderForm);
+  const product = data.get("product");
+  const price = data.get("price");
+  const customer = data.get("customer").trim();
+  const phone = data.get("phone").trim();
+  const address = data.get("address").trim();
+  const payment = data.get("payment");
+  const message = `Hello GOMSENG, I want to place a demo order.
+Product: ${product}
+Price: ${price}
+Customer: ${customer}
+Phone: ${phone}
+Address: ${address}
+Payment mode: ${payment}.
+Please confirm availability and final delivery details.`;
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+  checkout.hidden = true;
 });
