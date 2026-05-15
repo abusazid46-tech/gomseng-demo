@@ -1,66 +1,43 @@
 const header = document.querySelector("[data-header]");
-const filterButtons = document.querySelectorAll("[data-filter]");
-const productCards = document.querySelectorAll(".product-card");
+const productField = document.querySelector("[data-product-field]");
 const form = document.querySelector("[data-form]");
 const result = document.querySelector("[data-result]");
-
-const looks = [
-  {
-    image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1300&q=82",
-    title: "Gold Ceremony Edit",
-    text: "Warm silk tones, traditional jewellery, and bridal-ready styling."
-  },
-  {
-    image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1300&q=82",
-    title: "Red Wedding Classic",
-    text: "A high-impact festive palette for engagement and wedding rituals."
-  },
-  {
-    image: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=1300&q=82",
-    title: "Festival Silk Story",
-    text: "Elegant textures for Bihu, gifting, and family celebrations."
-  }
-];
-
-let activeLook = 0;
+const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 16);
+  header.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-
-    filterButtons.forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-
-    productCards.forEach((card) => {
-      const categories = card.dataset.category.split(" ");
-      const shouldShow = filter === "all" || categories.includes(filter);
-      card.classList.toggle("hidden", !shouldShow);
-    });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
   });
+}, { threshold: 0.16 });
+
+reveals.forEach((item, index) => {
+  item.style.transitionDelay = `${Math.min(index * 55, 320)}ms`;
+  observer.observe(item);
 });
 
-document.querySelector("[data-gallery-next]").addEventListener("click", () => {
-  activeLook = (activeLook + 1) % looks.length;
-  const look = looks[activeLook];
-
-  document.querySelector("[data-gallery-image]").src = look.image;
-  document.querySelector("[data-gallery-title]").textContent = look.title;
-  document.querySelector("[data-gallery-text]").textContent = look.text;
-  document.querySelector("[data-gallery-count]").textContent = `0${activeLook + 1} / 03`;
+document.querySelectorAll("[data-product]").forEach((button) => {
+  button.addEventListener("click", () => {
+    productField.value = button.dataset.product;
+    document.querySelector("#enquiry").scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => productField.focus(), 520);
+  });
 });
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(form);
   const name = data.get("name").trim();
-  const occasion = data.get("occasion");
-  const interest = data.get("interest");
-  const budget = data.get("budget").trim() || "to be discussed";
+  const product = data.get("product").trim();
+  const channel = data.get("channel");
+  const budget = data.get("budget").trim() || "open";
 
-  result.textContent = `Message ready: Hello GOMSENG, I am ${name}. I am looking for ${interest} for ${occasion}. My budget range is ${budget}. Please share available options and appointment timing.`;
+  result.innerHTML = `Ready message for ${channel}: Hello GOMSENG, I am ${name}. I want to buy or enquire about ${product}. My budget is ${budget}. Please share available designs, price and appointment timing.<br><br><a href="https://www.instagram.com/gomseng_assamese_silk" target="_blank" rel="noreferrer">Open Instagram enquiry</a>`;
   result.classList.add("visible");
 });
