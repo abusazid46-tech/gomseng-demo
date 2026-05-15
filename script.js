@@ -21,6 +21,8 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.16 });
 
 reveals.forEach((item, index) => {
+  const motion = index % 3 === 0 ? "from-left" : index % 3 === 1 ? "from-right" : "shuffle-in";
+  item.classList.add(motion);
   item.style.transitionDelay = `${Math.min(index * 55, 320)}ms`;
   observer.observe(item);
 });
