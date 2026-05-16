@@ -5,10 +5,33 @@ const result = document.querySelector("[data-result]");
 const reveals = document.querySelectorAll(".reveal");
 const checkout = document.querySelector("[data-checkout]");
 const orderForm = document.querySelector("[data-order-form]");
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const mobileMenu = document.querySelector("[data-mobile-menu]");
 const whatsappNumber = "917002005047";
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.toggle("open");
+  menuToggle.classList.toggle("open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    menuToggle.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.querySelectorAll("img[data-fallback]").forEach((image) => {
+  image.addEventListener("error", () => {
+    image.src = image.dataset.fallback;
+    image.classList.add("fallback-image");
+  }, { once: true });
 });
 
 const observer = new IntersectionObserver((entries) => {
@@ -27,6 +50,20 @@ reveals.forEach((item, index) => {
   observer.observe(item);
 });
 
+document.querySelectorAll("[data-filter]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+    document.querySelectorAll("[data-filter]").forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+
+    document.querySelectorAll(".product").forEach((card) => {
+      const categories = card.dataset.category.split(" ");
+      const show = filter === "all" || categories.includes(filter);
+      card.classList.toggle("filtered-out", !show);
+    });
+  });
+});
+
 document.querySelectorAll("[data-product]").forEach((button) => {
   button.addEventListener("click", () => {
     productField.value = button.dataset.product;
@@ -39,7 +76,7 @@ document.querySelectorAll("[data-buy]").forEach((button) => {
   button.addEventListener("click", () => {
     checkout.hidden = false;
     orderForm.querySelector("[data-order-product]").value = button.dataset.buy;
-    orderForm.querySelector("[data-order-price]").value = `₹${Number(button.dataset.price).toLocaleString("en-IN")}`;
+    orderForm.querySelector("[data-order-price]").value = `Rs. ${Number(button.dataset.price).toLocaleString("en-IN")}`;
     orderForm.elements.customer.focus();
   });
 });

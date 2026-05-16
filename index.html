@@ -16,7 +16,7 @@
           <small>Assamese Silk House</small>
         </span>
       </a>
-      <nav aria-label="Primary navigation">
+      <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#collections">Collections</a>
         <a href="#bridal">Bridal</a>
@@ -25,6 +25,20 @@
         <a href="#visit">Visit</a>
       </nav>
       <a class="nav-cta" href="https://www.instagram.com/gomseng_assamese_silk" target="_blank" rel="noreferrer">Instagram</a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="mobile-menu" data-mobile-menu>
+        <a href="#about">About</a>
+        <a href="#collections">Collections</a>
+        <a href="#bridal">Bridal</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#craft">Authenticity</a>
+        <a href="#visit">Visit</a>
+        <a href="#enquiry">WhatsApp Enquiry</a>
+      </div>
     </header>
 
     <main id="top">
@@ -36,17 +50,17 @@
           <h1>Golden Muga moods, bridal drapes, heirloom shine.</h1>
           <p>
             A premium storefront concept for GOMSENG, built around Assamese silk, Mekhela Chador,
-            Axomiya Gohona, bridal appointments and quick social enquiry.
+            Axomiya Gohona, bridal appointments and quick WhatsApp enquiry.
           </p>
           <div class="hero-actions">
-            <a class="button gold" href="#collections">Shop the Demo</a>
-            <a class="button glass" href="https://www.facebook.com/share/15oqmprB3Nt/?mibextid=wwXIfr" target="_blank" rel="noreferrer">Message on Facebook</a>
+            <a class="button gold" href="#collections">Shop Collections</a>
+            <a class="button glass" href="https://wa.me/917002005047?text=Hello%20GOMSENG%2C%20I%20want%20to%20enquire%20about%20your%20bridal%20collections." target="_blank" rel="noreferrer">Message on WhatsApp</a>
           </div>
         </div>
         <aside class="hero-card reveal">
-          <img src="https://content.jdmagicbox.com/comp/jorhat/w6/9999p3771.3771.220319210653.k1w6/catalogue/gomseng-assamese-silk-mekhla-chadar-assamese-jewellery-new-bessamora-jorhat-women-readymade-garment-retailers-rk5nmhowhj-250.jpg" alt="GOMSENG Assamese Silk public listing photo" />
+          <img src="gomseng-logo.jpg" alt="GOMSENG Assamese Silk logo" />
           <div>
-            <span>Public listing image</span>
+            <span>Assamese silk boutique</span>
             <strong>GOMSENG Assamese Silk</strong>
             <p>4.6 rated boutique for Assamese silk, Mekhla Chadar and jewellery.</p>
           </div>
@@ -66,6 +80,9 @@
           <span>Axomiya Gohona</span>
           <span>Bridal Styling</span>
           <span>Festival Wear</span>
+          <span>Muga Silk</span>
+          <span>Pat Silk</span>
+          <span>Mekhela Chador</span>
         </div>
       </section>
 
@@ -74,8 +91,8 @@
           <p class="eyebrow dark">Assamese tone, premium trust</p>
           <h2>Make the silk feel valuable before the customer enters the store.</h2>
           <p>
-            The site now leads with a large silk visual, richer gold-lac-green Assamese palette,
-            fabric confidence, and product cards designed for direct enquiry.
+            The site leads with a large silk visual, rich gold-lac-green Assamese palette,
+            fabric confidence, category filtering and direct product enquiry.
           </p>
         </div>
         <div class="silk-panel reveal">
@@ -83,7 +100,7 @@
           <ul>
             <li>Fabric type clearly named</li>
             <li>Blouse and jewellery pairing noted</li>
-            <li>Instagram/Facebook enquiry from every item</li>
+            <li>WhatsApp enquiry from every item</li>
           </ul>
         </div>
       </section>
@@ -129,55 +146,62 @@
       <section class="collections section" id="collections">
         <div class="section-head reveal">
           <p class="eyebrow dark">Featured pieces</p>
-          <h2>Real enquiry CTAs on every product.</h2>
+          <h2>Filter collections and enquire directly.</h2>
+        </div>
+        <div class="category-filter reveal" aria-label="Product category filter">
+          <button class="active" type="button" data-filter="all">All</button>
+          <button type="button" data-filter="bridal">Bridal</button>
+          <button type="button" data-filter="muga">Muga Silk</button>
+          <button type="button" data-filter="pat">Pat Silk</button>
+          <button type="button" data-filter="jewellery">Jewellery</button>
         </div>
         <div class="product-grid">
-          <article class="product reveal">
-            <img src="https://content.jdmagicbox.com/comp/jorhat/w6/9999p3771.3771.220319210653.k1w6/catalogue/gomseng-assamese-silk-mekhla-chadar-assamese-jewellery-new-bessamora-jorhat-women-readymade-garment-retailers-rk5nmhowhj-250.jpg" alt="GOMSENG Assamese silk product preview" />
+          <article class="product reveal" data-category="bridal muga">
+            <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=84" alt="Rich red and gold silk bridal textile" data-fallback="gomseng-logo.jpg" />
             <div class="product-body">
-              <span>Store Collection</span>
+              <span>Bridal Muga</span>
               <h3>GOMSENG Signature Silk</h3>
-              <p>Public listing product image from GOMSENG's directory footprint.</p>
-              <strong class="price">₹4,999</strong>
+              <p>Premium red-gold silk styling for bridal rituals and reception looks.</p>
+              <strong class="price">Rs. 4,999</strong>
               <div class="product-actions">
                 <button type="button" data-product="GOMSENG Signature Silk">Enquire</button>
                 <button type="button" class="buy" data-buy="GOMSENG Signature Silk" data-price="4999">Buy Now</button>
               </div>
             </div>
           </article>
-          <article class="product reveal">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Assamese_traditional_Mekhela_and_Sador_made_of_Muga_silk.jpg/800px-Assamese_traditional_Mekhela_and_Sador_made_of_Muga_silk.jpg" alt="Assamese traditional Mekhela and Sador made of Muga silk" />
+          <article class="product reveal" data-category="bridal muga">
+            <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=84" alt="Golden silk textile arranged for occasion wear" data-fallback="gomseng-logo.jpg" />
             <div class="product-body">
-              <span>Muga mood</span>
+              <span>Muga Mood</span>
               <h3>Golden Mekhela Chador</h3>
               <p>Assamese-toned silk inspiration for premium bridal and family functions.</p>
-              <strong class="price">₹12,999</strong>
+              <strong class="price">Rs. 12,999</strong>
               <div class="product-actions">
                 <button type="button" data-product="Golden Mekhela Chador">Enquire</button>
                 <button type="button" class="buy" data-buy="Golden Mekhela Chador" data-price="12999">Buy Now</button>
               </div>
             </div>
           </article>
-          <article class="product reveal">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Assam_Textile.jpg/800px-Assam_Textile.jpg" alt="Assam textile closeup" />
+          <article class="product reveal" data-category="pat">
+            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=84" alt="Ivory and red silk occasion textile" data-fallback="gomseng-logo.jpg" />
             <div class="product-body">
-              <span>Festival silk</span>
+              <span>Pat Silk</span>
               <h3>Pat Silk Occasion Set</h3>
               <p>Ivory, red and gold styling direction for Bihu, weddings and gifting.</p>
-              <strong class="price">₹8,499</strong>
+              <strong class="price">Rs. 8,499</strong>
               <div class="product-actions">
                 <button type="button" data-product="Pat Silk Occasion Set">Enquire</button>
                 <button type="button" class="buy" data-buy="Pat Silk Occasion Set" data-price="8499">Buy Now</button>
               </div>
             </div>
           </article>
-          <article class="product reveal">
-            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=900&q=84" alt="Traditional jewellery product display" />
+          <article class="product reveal" data-category="jewellery">
+            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=900&q=84" alt="Traditional jewellery product display" data-fallback="gomseng-logo.jpg" />
             <div class="product-body">
               <span>Jewellery</span>
               <h3>Axomiya Gohona Pairing</h3>
               <p>Neckpiece, earrings and bangles styled with bridal Mekhela Chador sets.</p>
-              <strong class="price">₹2,999</strong>
+              <strong class="price">Rs. 2,999</strong>
               <div class="product-actions">
                 <button type="button" data-product="Axomiya Gohona Pairing">Enquire</button>
                 <button type="button" class="buy" data-buy="Axomiya Gohona Pairing" data-price="2999">Buy Now</button>
@@ -194,15 +218,15 @@
         </div>
         <div class="testimonial-grid">
           <article class="testimonial reveal">
-            <p>“The collection feels traditional but fresh. The staff helped us match jewellery with the Mekhela Chador beautifully.”</p>
+            <p>"The collection feels traditional but fresh. The staff helped us match jewellery with the Mekhela Chador beautifully."</p>
             <span>Bridal shopper</span>
           </article>
           <article class="testimonial reveal">
-            <p>“Good place for Assamese silk and occasion wear. The product guidance made the selection much easier.”</p>
+            <p>"Good place for Assamese silk and occasion wear. The product guidance made the selection much easier."</p>
             <span>Festival buyer</span>
           </article>
           <article class="testimonial reveal">
-            <p>“Loved the styling suggestions and quick WhatsApp support. It feels like a premium local boutique.”</p>
+            <p>"Loved the styling suggestions and quick WhatsApp support. It feels like a premium local boutique."</p>
             <span>Remote customer</span>
           </article>
         </div>
@@ -255,7 +279,7 @@
 
     <div class="checkout" data-checkout hidden>
       <div class="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
-        <button class="close" type="button" data-close aria-label="Close checkout">×</button>
+        <button class="close" type="button" data-close aria-label="Close checkout">x</button>
         <p class="eyebrow dark">Demo checkout</p>
         <h2 id="checkout-title">Complete your order</h2>
         <form data-order-form>
@@ -274,8 +298,22 @@
     </div>
 
     <footer>
-      <strong>GOMSENG</strong>
-      <span>Premium static demo for Assamese silk retail.</span>
+      <div class="footer-brand">
+        <img src="gomseng-logo.jpg" alt="GOMSENG logo" />
+        <div>
+          <strong>GOMSENG Assamese Silk House</strong>
+          <span>Premium Assamese silk, Mekhela Chador, bridal styling and Axomiya Gohona in Jorhat.</span>
+        </div>
+      </div>
+      <div class="footer-details">
+        <p>FH Complex, New Balibat Road, Near Aastha Diagnostic, Jorhat, Assam 785001</p>
+        <p>WhatsApp: <a href="https://wa.me/917002005047">7002005047</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/gomseng_assamese_silk">@gomseng_assamese_silk</a></p>
+      </div>
+      <div class="footer-bottom">
+        <span>(c) 2026 GOMSENG. All rights reserved.</span>
+        <span>Demo website concept.</span>
+      </div>
     </footer>
 
     <a
